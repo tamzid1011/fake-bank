@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payooo Mobile Bank</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">PAYOOO</div>
+        </div>
+
+        <div class="balance-container">
+            <div class="balance-label">Available Balance</div>
+            <div class="balance-amount" id="balanceAmount">$0.00</div>
+        </div>
+
+        <div class="actions">
+            <button class="action-btn" onclick="showTransactionForm('deposit')">Deposit</button>
+            <button class="action-btn" onclick="showTransactionForm('withdraw')">Withdraw</button>
+            <button class="action-btn" onclick="showTransactionForm('transfer')">Transfer</button>
+        </div>
+
+        <h3>Transaction History</h3>
+        <ul class="transaction-list" id="transactionList"></ul>
+    </div>
+
+    <!-- Transaction Form -->
+    <div class="transaction-form" id="transactionForm">
+        <div class="form-container">
+            <h2 id="formTitle">New Transaction</h2>
+            <form onsubmit="handleTransaction(event)">
+                <div class="form-group">
+                    <label>Type:</label>
+                    <select id="transactionType" required>
+                        <option value="deposit">Deposit</option>
+                        <option value="withdraw">Withdraw</option>
+                        <option value="transfer">Transfer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Amount:</label>
+                    <input type="number" id="transactionAmount" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label>Description:</label>
+                    <input type="text" id="transactionDescription" required>
+                </div>
+                <button type="submit" class="submit-btn">Confirm</button>
+            </form>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
